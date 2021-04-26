@@ -6,10 +6,12 @@
 #include "../include/Node.h"
 
 int main() {
-    Node *second = new Node(2);
-    Node *first = new Node(1, second);
-    Node *dump = new Node(first);
-    Node *ptr = dump;
+    Node *head = new Node(0);
+    Node *second = new Node(1);
+    Node *third = new Node(2);
+    head->next = second;
+    second->next = third;
+    Node *ptr = head;
     while (ptr != nullptr) {
         std::cout << ptr->value;
         if (ptr->next != nullptr)

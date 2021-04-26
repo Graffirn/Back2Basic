@@ -17,15 +17,10 @@ int main() {
     delete list;
     printSep();
     
-    list = new SinglyLinkedList(1);
+    list = new SinglyLinkedList(0);
     cout << list->getLength() << endl;
     list->printList();
     delete list;
-    printSep();
-    
-    list = new SinglyLinkedList(new Node(0));
-    cout << list->getLength() << endl;
-    list->printList();
     printSep();
 
     list->appendNode(1);
@@ -47,8 +42,6 @@ int main() {
     cout << list->getLength() << endl;
     list->printList();
     printSep();
-
-
 
     return 0;
 }

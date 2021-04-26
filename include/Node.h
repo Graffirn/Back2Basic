@@ -6,9 +6,8 @@ public:
     Node *next;
     int value;
 
+    Node();
     Node(int value);
-    Node(Node *nextNode);
-    Node(int value, Node *nextNode);
 };
 
 #endif

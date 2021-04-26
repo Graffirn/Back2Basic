@@ -4,14 +4,13 @@ SinglyLinkedList::SinglyLinkedList() {
     this->length = 0;
 }
 
-SinglyLinkedList::SinglyLinkedList(Node *head) {
-    this->head = head;
-    this->length = 1;
-}
-
 SinglyLinkedList::SinglyLinkedList(int value) {
     this->head = new Node(value);
     this->length = 1;
+}
+
+SinglyLinkedList::~SinglyLinkedList() {
+    delete this->head;
 }
 
 int SinglyLinkedList::getLength() {
@@ -36,11 +35,13 @@ Node *SinglyLinkedList::insertNode(int index, int value) {
     if (index >= this->length || index < 0) {
         return nullptr;
     }
-    Node *ptr = new Node(this->head);
+    Node *ptr = new Node();
+    ptr->next = head;
     while (index--) {
         ptr = ptr->next;
     }
-    Node *newNode = new Node(value, ptr->next);
+    Node *newNode = new Node(value);
+    newNode->next = ptr->next;
     ptr->next = newNode;
     this->length += 1;
     return newNode;
@@ -50,11 +51,14 @@ Node *SinglyLinkedList::deleteNode(int index) {
     if (index >= this->length || index < 0) {
         return this->head;
     }
-    Node *ptr = new Node(this->head);
+    Node *ptr = new Node();
+    ptr->next = head;
     while (index--) {
         ptr = ptr->next;
     }
-    ptr->next = ptr->next->next;
+    Node *temp = ptr->next->next;
+    delete ptr->next;
+    ptr->next = temp;
     this->length -= 1;
     return this->head;
 }
@@ -73,7 +77,8 @@ Node *SinglyLinkedList::updateNode(int index, int value) {
 
 void SinglyLinkedList::printList() {
     Node *ptr = head;
-    while (ptr != nullptr) {
+    int cnt = this->length;
+    while (cnt--) {
         std::cout << ptr->value;
         if (ptr->next != nullptr) {
             std::cout << "->";

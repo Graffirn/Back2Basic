@@ -12,8 +12,8 @@ public:
     int length;
     
     SinglyLinkedList();
-    SinglyLinkedList(Node *head);
     SinglyLinkedList(int value);
+    ~SinglyLinkedList();
 
     int getLength();
     Node *getHead();
