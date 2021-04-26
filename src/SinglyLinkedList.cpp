@@ -47,6 +47,7 @@ Node *SinglyLinkedList::insertNode(int index, int value) {
     ptr->next = newNode;
     
     this->length += 1;
+    this->head = dump->next;
     delete dump;
     return newNode;
 }

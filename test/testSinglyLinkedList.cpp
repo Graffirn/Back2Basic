@@ -32,6 +32,11 @@ int main() {
     list->printList();
     printSep();
     
+    list->insertNode(0, 5);
+    cout << list->getLength() << endl;
+    list->printList();
+    printSep();
+    
     list->updateNode(2, 2);
     cout << list->getLength() << endl;
     list->printList();
