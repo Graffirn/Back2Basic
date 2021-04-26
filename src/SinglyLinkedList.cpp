@@ -35,15 +35,19 @@ Node *SinglyLinkedList::insertNode(int index, int value) {
     if (index >= this->length || index < 0) {
         return nullptr;
     }
-    Node *ptr = new Node();
+    Node *dump = new Node();
+    Node *ptr = dump;
     ptr->next = head;
     while (index--) {
         ptr = ptr->next;
     }
+
     Node *newNode = new Node(value);
     newNode->next = ptr->next;
     ptr->next = newNode;
+    
     this->length += 1;
+    delete dump;
     return newNode;
 }
 
@@ -51,15 +55,19 @@ Node *SinglyLinkedList::deleteNode(int index) {
     if (index >= this->length || index < 0) {
         return this->head;
     }
-    Node *ptr = new Node();
+    Node *dump = new Node();
+    Node *ptr = dump;
     ptr->next = head;
     while (index--) {
         ptr = ptr->next;
     }
+    
     Node *temp = ptr->next->next;
     delete ptr->next;
     ptr->next = temp;
+
     this->length -= 1;
+    delete dump;
     return this->head;
 }
 

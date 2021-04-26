@@ -20,7 +20,6 @@ int main() {
     list = new SinglyLinkedList(0);
     cout << list->getLength() << endl;
     list->printList();
-    delete list;
     printSep();
 
     list->appendNode(1);
