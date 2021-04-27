@@ -39,7 +39,7 @@ Node *SinglyLinkedList::insertNode(int index, int value) {
     }
     Node *dump = new Node();
     Node *ptr = dump;
-    ptr->next = head;
+    ptr->next = this->head;
     while (index--) {
         ptr = ptr->next;
     }
@@ -60,7 +60,7 @@ Node *SinglyLinkedList::deleteNode(int index) {
     }
     Node *dump = new Node();
     Node *ptr = dump;
-    ptr->next = head;
+    ptr->next = this->head;
     while (index--) {
         ptr = ptr->next;
     }
@@ -70,6 +70,7 @@ Node *SinglyLinkedList::deleteNode(int index) {
     ptr->next = temp;
 
     this->length -= 1;
+    this->head = dump->next;
     delete dump;
     return this->head;
 }
@@ -87,7 +88,7 @@ Node *SinglyLinkedList::updateNode(int index, int value) {
 }
 
 void SinglyLinkedList::printList() {
-    Node *ptr = head;
+    Node *ptr = this->head;
     int cnt = this->length;
     while (cnt--) {
         std::cout << ptr->value;

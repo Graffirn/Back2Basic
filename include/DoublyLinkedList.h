@@ -9,7 +9,7 @@ class DoublyLinkedList
 {
 public:
     Node *head;
-    Node * tail;
+    Node *tail;
     int length;
     
     DoublyLinkedList();
@@ -18,11 +18,16 @@ public:
 
     int getLength();
     Node *getHead();
-    Node *appendNode(int value);
+    Node *getTail();
+    Node *pushHead(int value);
+    Node *pushTail(int value);
+    Node *removeHead();
+    Node *removeTail();
     Node *insertNode(int index, int value);
     Node *deleteNode(int index);
     Node *updateNode(int index, int value);
-    void printList();
+    void printForward();
+    void printBackward();
 };
 
 #endif

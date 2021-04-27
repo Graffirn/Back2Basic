@@ -4,6 +4,7 @@
 class Node {
 public:
     Node *next;
+    Node *prev; 
     int value;
 
     Node();
