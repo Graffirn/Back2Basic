@@ -12,12 +12,7 @@ void printSep() {
 }
 
 int main() {
-    SinglyLinkedList *list = new SinglyLinkedList();
-    cout << list->getLength() << endl;
-    delete list;
-    printSep();
-    
-    list = new SinglyLinkedList(0);
+    SinglyLinkedList *list = new SinglyLinkedList(0);
     cout << list->getLength() << endl;
     list->printList();
     printSep();

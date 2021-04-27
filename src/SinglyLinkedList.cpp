@@ -1,16 +1,18 @@
 #include "../include/SinglyLinkedList.h"
 
-SinglyLinkedList::SinglyLinkedList() {
-    this->length = 0;
-}
-
 SinglyLinkedList::SinglyLinkedList(int value) {
     this->head = new Node(value);
     this->length = 1;
 }
 
 SinglyLinkedList::~SinglyLinkedList() {
-    delete this->head;
+    Node *ptr = this->head;
+    Node *next;
+    while (ptr != nullptr) {
+        next = ptr->next;
+        delete ptr;
+        ptr = next;
+    }
 }
 
 int SinglyLinkedList::getLength() {

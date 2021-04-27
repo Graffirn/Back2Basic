@@ -1,18 +1,20 @@
-#ifndef SINGLYLINKEDLIST_H
-#define SINGLYLINKEDLIST_H
+#ifndef DOUBLYLINKEDLIST_H
+#define DOUBLYLINKEDLIST_H
 
 #include <iostream>
 #include "Node.h"
 
 
-class SinglyLinkedList
+class DoublyLinkedList
 {
 public:
     Node *head;
+    Node * tail;
     int length;
     
-    SinglyLinkedList(int value);
-    ~SinglyLinkedList();
+    DoublyLinkedList();
+    DoublyLinkedList(int value);
+    ~DoublyLinkedList();
 
     int getLength();
     Node *getHead();
